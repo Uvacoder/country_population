@@ -6,8 +6,7 @@ let { data } = papaparse.parse(Deno.readTextFileSync("un-indicators.csv"), {
   header: true,
 });
 
-data = data
-  .filter((row) => row.ISO3_code && row.Time == 2021);
+data = data.filter((row) => row.ISO3_code && row.Time == 2021);
 
 data = data
   .map((row) => ({
@@ -16,9 +15,14 @@ data = data
     ISO2: row.ISO2_code,
     population: Math.round(row.TPopulation1July),
   }))
-  .sort((a, b) => b.Population - a.Population);
+  .sort((a, b) => b.population - a.population);
 
 console.log(data.slice(0, 10), data.length);
 
-
 Deno.writeTextFileSync("country_population.csv", papaparse.unparse(data));
+Deno.writeTextFileSync(
+  "country_population_noheaders.csv",
+  papaparse.unparse(data, {
+    header: false,
+  })
+);
