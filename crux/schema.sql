@@ -9,7 +9,8 @@ CREATE TABLE "country"(
 .import ../../country_population_noheaders.csv country
 
 CREATE TABLE "origin"(
-"url" TEXT NOT NULL PRIMARY KEY);
+"url" TEXT NOT NULL PRIMARY KEY,
+"tld" TEXT);
 
 CREATE TABLE "country_origin"(
   "country_code" TEXT NOT NULL,

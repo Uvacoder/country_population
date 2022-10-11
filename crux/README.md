@@ -5,12 +5,13 @@ Create a new month:
 ```
 mkdir 082022
 sqlite3 data.sqlite -cmd ".cd 082022" -cmd ".read ../schema.sql" ".read ../report.sql"
+deno run -A update-tlds.js 082022/data.sqlite
 ```
 
 
 ```
 # Iterate on schema
-rm -f data.sqlite && sqlite3 data.sqlite -cmd ".cd 082022" -cmd ".read ../schema.sql" ".read ../report.sql"
+rm -f 082022/data.sqlite && sqlite3 data.sqlite -cmd ".cd 082022" -cmd ".read ../schema.sql" ".read ../report.sql"
 
 # Just reporting
 sqlite3 data.sqlite -cmd ".cd 082022" ".read ../report.sql"
