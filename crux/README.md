@@ -15,3 +15,7 @@ rm -f data.sqlite && sqlite3 data.sqlite -cmd ".cd 082022" -cmd ".read ../schema
 # Just reporting
 sqlite3 data.sqlite -cmd ".cd 082022" ".read ../report.sql"
 ```
+
+```
+datasette 082022/data.sqlite -o  
+```
