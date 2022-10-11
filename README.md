@@ -1,6 +1,6 @@
-```
-wget "https://api.worldbank.org/v2/en/indicator/SP.POP.TOTL?downloadformat=csv" -O pop-total.zip && unzip -o pop-total.zip -d pop_total && cp pop_total/API_SP.POP.TOTL_DS2_en_csv_v2_4578059.csv ./pop_total.csv && rm -r pop_total pop-total.zip
 
-deno run -A download_iso_table.js
-deno run -A create_population_table.js
+
+```
+wget "https://population.un.org/wpp/Download/Files/1_Indicators%20(Standard)/CSV_FILES/WPP2022_Demographic_Indicators_Medium.zip" -O un-indicators.zip && unzip -o un-indicators.zip -d un-indicators && cp un-indicators/WPP2022_Demographic_Indicators_Medium.csv ./un-indicators.csv && rm -r un-indicators un-indicators.zip
+deno run -A process-un.js
 ```
